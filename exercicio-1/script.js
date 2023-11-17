@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const countryAbbreviation = document.getElementById('countryAbbreviation');
     const countryIntlName = document.getElementById('countryIntlName');
 
-
     fetch('paises.json')
         .then(response => response.json())
         .then(data => {
