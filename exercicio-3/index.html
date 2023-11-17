@@ -4,16 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Exercício 3</title>
 </head>
 
 <body>
-    <section id="exercise-3">
-        <u>
-            <h2>Exercício 3</h2>
-        </u>
-        <br>
-    </section>
+    <h1>Exercício 3</h1>
+    <div class="container">
+        <label for="metadataSelect">Escolha o tipo de metadado:</label>
+        <select id="metadataSelect">
+            <option value="ABATE12_ABQUSU12">ABATE12_ABQUSU12</option>
+            <option value="ANP_PDGASN">ANP_PDGASN</option>
+            <option value="CE12_CUTBC12">CE12_CUTBC12</option>
+        </select>
+        <button onclick="consultarDados()">Confirmar</button>
+        <div id="dadosContainer"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 
