@@ -1,1 +1,52 @@
 @import url('https://fonts.cdnfonts.com/css/copperplate-gothic-std');
+
+* {
+    font-family: 'Copperplate Gothic Std', sans-serif;
+    color: red;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #f8f8ff;
+}
+
+.container {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    margin-right: 10px;
+    max-width: 100px;
+}
+
+h1 {
+    margin: 0;
+}
+
+button {
+    background-color: red;
+    color: white;
+    border: red;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.7s, color 0.5s;
+}
+
+button:hover {
+    background-color: white;
+    color: red;
+}
