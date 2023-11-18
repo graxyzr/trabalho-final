@@ -69,7 +69,7 @@ async function consultarParticipantesPIX() {
 
         // Verifica se há participantes do PIX e exibe as informações ou uma mensagem se não houver participantes
         if (data.length > 0) {
-            const pixParticipantesInfo = data.map(participante => `<p>Código: ${participante.codigo}, Descrição: ${participante.descricao}, Data Início: ${participante.data_inicio}, Data Fim: ${participante.data_fim}, Tipo Ato: ${participante.tipo_ato}, Número Ato: ${participante.numero_ato}, Ano Ato: ${participante.ano_ato}</p>`).join('');
+            const pixParticipantesInfo = data.map(participante => `<p>Código: ${participante.codigo}</p> <p>Descrição: ${participante.descricao}</p> <p>Data Início: ${participante.data_inicio}</p> <p>Data Fim: ${participante.data_fim}</p> <p>Tipo Ato: ${participante.tipo_ato}</p> <p>Número Ato: ${participante.numero_ato}</p> <p>Ano Ato: ${participante.ano_ato}</p>`).join('');
             document.getElementById('pixParticipantesResult').innerHTML = pixParticipantesInfo;
         } else {
             document.getElementById('pixParticipantesResult').innerHTML = '<p>Nenhum participante do PIX encontrado.</p>';
