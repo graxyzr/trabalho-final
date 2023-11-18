@@ -12,7 +12,6 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    overflow: hidden;
     background-color: #f8f8ff;
 }
 
@@ -24,6 +23,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#resultContainer {
+    max-width: 600px;
+    padding: 10px;
 }
 
 img {
