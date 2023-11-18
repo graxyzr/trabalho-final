@@ -36,7 +36,7 @@ function consultarDados() {
         .catch(error => console.error('Erro:', error));
 }
 
-// Função para selecionar aleatoriamente n itens de uma lista
+// Uma function para selecionar aleatoriamente n itens de uma lista
 function getRandomItems(array, n) {
     var shuffled = array.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, n);
