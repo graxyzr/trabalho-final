@@ -1,4 +1,9 @@
 async function fetchWithPromiseAny() {
+    const resultContainer = document.getElementById('resultContainer');
+
+    // Limpar o conteúdo anterior
+    resultContainer.innerHTML = '';
+
     // Definir os URLs das APIs a serem consultadas
     const apiUrl1 = 'https://parallelum.com.br/fipe/api/v1/carros/marcas';
     const apiUrl2 = 'https://parallelum.com.br/fipe/api/v1/carros/marcas/59/modelos';
@@ -12,17 +17,26 @@ async function fetchWithPromiseAny() {
             fetch(apiUrl3).then(response => response.json())
         ]);
 
-        // Exibir o resultado no console e em um alerta
-        console.log('Resultado da primeira promessa resolvida (Promise.any):', result);
-        alert('Resultado da primeira promessa resolvida (Promise.any):\n' + JSON.stringify(result, null, 2));
+        // Exibir os resultados no container
+        if (result.codigo) {
+            resultContainer.innerHTML = `<p>Código: ${result.codigo}, Nome: ${result.nome}</p>`;
+        } else if (result[0].codigo) {
+            for (let i = 0; i < 10; i++) {
+                resultContainer.innerHTML += `<p>Código: ${result[i].codigo}, Nome: ${result[i].nome}</p>`;
+            }
+        }
     } catch (error) {
-        // Tratar erros, exibindo mensagens no console e em um alerta
-        console.error('Erro ao acessar APIs (Promise.any):', error);
-        alert('Erro ao acessar APIs (Promise.any):\n' + error.message);
+        // Tratar erros, exibindo mensagens no container
+        resultContainer.textContent = `Erro ao acessar APIs (Promise.any): ${error.message}`;
     }
 }
 
 async function fetchWithPromiseRace() {
+    const resultContainer = document.getElementById('resultContainer');
+
+    // Limpar o conteúdo anterior
+    resultContainer.innerHTML = '';
+
     // Definir os URLs das APIs a serem consultadas
     const apiUrl1 = 'https://parallelum.com.br/fipe/api/v1/carros/marcas';
     const apiUrl2 = 'https://parallelum.com.br/fipe/api/v1/carros/marcas/59/modelos';
@@ -36,17 +50,26 @@ async function fetchWithPromiseRace() {
             fetch(apiUrl3).then(response => response.json())
         ]);
 
-        // Exibir o resultado no console e em um alerta
-        console.log('Resultado da primeira promessa resolvida (Promise.race):', result);
-        alert('Resultado da primeira promessa resolvida (Promise.race):\n' + JSON.stringify(result, null, 2));
+        // Exibir os resultados no container
+        if (result.codigo) {
+            resultContainer.innerHTML = `<p>Código: ${result.codigo}, Nome: ${result.nome}</p>`;
+        } else if (result[0].codigo) {
+            for (let i = 0; i < 10; i++) {
+                resultContainer.innerHTML += `<p>Código: ${result[i].codigo}, Nome: ${result[i].nome}</p>`;
+            }
+        }
     } catch (error) {
-        // Tratar erros, exibindo mensagens no console e em um alerta
-        console.error('Erro ao acessar APIs (Promise.race):', error);
-        alert('Erro ao acessar APIs (Promise.race):\n' + error.message);
+        // Tratar erros, exibindo mensagens no container
+        resultContainer.textContent = `Erro ao acessar APIs (Promise.race): ${error.message}`;
     }
 }
 
 async function fetchWithPromiseAll() {
+    const resultContainer = document.getElementById('resultContainer');
+
+    // Limpar o conteúdo anterior
+    resultContainer.innerHTML = '';
+
     // Definir os URLs das APIs a serem consultadas
     const apiUrl1 = 'https://parallelum.com.br/fipe/api/v1/carros/marcas';
     const apiUrl2 = 'https://parallelum.com.br/fipe/api/v1/carros/marcas/59/modelos';
@@ -60,12 +83,16 @@ async function fetchWithPromiseAll() {
             fetch(apiUrl3).then(response => response.json())
         ]);
 
-        // Exibir os resultados no console e em um alerta
-        console.log('Resultados das 3 APIs (Promise.all):', results);
-        alert('Resultados das 3 APIs (Promise.all):\n' + JSON.stringify(results, null, 2));
+        // Exibir os resultados no container
+        results.forEach(result => {
+            if (result[0] && result[0].codigo) {
+                for (let i = 0; i < Math.min(result.length, 10); i++) {
+                    resultContainer.innerHTML += `<p>Código: ${result[i].codigo}, Nome: ${result[i].nome}</p>`;
+                }
+            }
+        });
     } catch (error) {
-        // Tratar erros, exibindo mensagens no console e em um alerta
-        console.error('Erro ao acessar APIs (Promise.all):', error);
-        alert('Erro ao acessar APIs (Promise.all):\n' + error.message);
+        // Tratar erros, exibindo mensagens no container
+        resultContainer.textContent = `Erro ao acessar APIs (Promise.all): ${error.message}`;
     }
 }
